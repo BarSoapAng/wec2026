@@ -1,0 +1,19 @@
+@import 'tailwindcss';
+
+:root {
+  font-family: system-ui, 'Segoe UI', Roboto, sans-serif;
+  color: #020617;
+  background: #f8fafc;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  margin: 0;
+}
+
+* {
+  box-sizing: border-box;
+}
