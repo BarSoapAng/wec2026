@@ -1,12 +1,13 @@
-import { Header1 } from "./lib/styles"
+import { PageWrapper } from "./components";
+import Hero from "src/sections/Hero/Hero";
+import About from "src/sections/About/About"
 
 function App() {
   return (
-    <main>
-      <Header1>
-        MEOW
-      </Header1>
-    </main>
+    <PageWrapper>
+      <Hero />
+      <About />
+    </PageWrapper>
   )
 }
 

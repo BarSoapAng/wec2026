@@ -7,7 +7,12 @@ export const colors = {
   },
   background: {
     sand: "#fce5c9",
-    sky: "#e1f7ff"
+    skyLight: "#e1f7ff",
+    skyDark: "#b9d0f3"
+  },
+  primary: {
+    white: "#FFF",
+    gray: "#7a7a7a",
   }
 };
 
