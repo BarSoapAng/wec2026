@@ -30,26 +30,40 @@ const Camera: React.FC = () => {
 
   return (
     <CameraScene>
-      <CameraWithButtons>
-        <Button
-          aria-label="Show previous competition"
-          onClick={showPreviousCompetition}
-          type="button"
-        >
-          {"<"}
-        </Button>
-        <CameraWrapper>
-          <CompetitionImage src={CompetitionDescription[selectedCompetition].image} />
-          <CameraImage src={AboutCamera} />
-        </CameraWrapper>
-        <Button
-          aria-label="Show next competition"
-          onClick={showNextCompetition}
-          type="button"
-        >
-          {">"}
-        </Button>
-      </CameraWithButtons>
+      <CameraCarousel>
+        <CameraWithButtons>
+          <Button
+            aria-label="Show previous competition"
+            onClick={showPreviousCompetition}
+            type="button"
+          >
+            {"<"}
+          </Button>
+          <CameraWrapper>
+            <CompetitionImage src={CompetitionDescription[selectedCompetition].image} />
+            <CameraImage src={AboutCamera} />
+          </CameraWrapper>
+          <Button
+            aria-label="Show next competition"
+            onClick={showNextCompetition}
+            type="button"
+          >
+            {">"}
+          </Button>
+        </CameraWithButtons>
+        <DotList aria-label="Competition carousel slides">
+          {CompetitionsList.map((competition, index) => (
+            <Dot
+              aria-label={`Show ${CompetitionDescription[competition].title}`}
+              aria-current={competition === selectedCompetition}
+              $isActive={index === selectedCompetitionIndex}
+              key={competition}
+              onClick={() => setSelectedCompetition(competition)}
+              type="button"
+            />
+          ))}
+        </DotList>
+      </CameraCarousel>
       <Description selectedCompetition={selectedCompetition} />
     </CameraScene>
   );
@@ -58,16 +72,31 @@ const Camera: React.FC = () => {
 const CameraScene = styled.div`
   display: flex;
   flex-direction: row;
+  align-items: center;
+  justify-content: center;
   height: 100%;
   width: 100%;
   max-height: 980px;
-  max-width: 2000px;
+  max-width: 1900px;
   margin: auto;
   gap: 50px;
   padding: 5%;
   
   ${mediaQueries.medium} {
     flex-direction: column;
+    gap: 30px;
+  }
+`;
+
+const CameraCarousel = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-self: center;
+  gap: 16px;
+  width: min(2000px, 120%);
+
+  ${mediaQueries.medium} {
+    width: 90vw;
   }
 `;
 
@@ -77,7 +106,7 @@ const CameraWithButtons = styled.div`
   flex-direction: row;
   align-self: center;
   width: 100%;
-  max-width: 1000px;
+  max-width: 1200px;
   height: auto;
 
   ${mediaQueries.medium} {
@@ -129,10 +158,41 @@ const Button = styled.button`
   font-size: 32px;
   font-weight: 900;
   color: ${colors.text.black};
+  transition: color 0.2s ease;
 
   &:hover,
   &:focus-visible {
     color: ${colors.primary.gray};
+  }
+
+  ${mediaQueries.medium} {
+    font-size: 24px;
+  }
+`;
+
+const DotList = styled.div`
+  display: flex;
+  justify-content: center;
+  gap: 5px;
+  transform: translateX(-11.5%);
+`;
+
+const Dot = styled.button<{ $isActive: boolean }>`
+  width: 5px;
+  height: 5px;
+  padding: 0;
+  border: 0;
+  border-radius: 50%;
+  background: ${({ $isActive }) =>
+    $isActive ? colors.text.black : colors.primary.gray};
+  cursor: pointer;
+  opacity: ${({ $isActive }) => ($isActive ? 1 : 0.45)};
+  transition: opacity 0.2s ease, transform 0.2s ease;
+
+  &:hover,
+  &:focus-visible {
+    opacity: 1;
+    transform: scale(1.15);
   }
 `;
 

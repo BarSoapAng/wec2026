@@ -26,14 +26,13 @@ const DescriptionWrapper = styled.div`
   display: flex;
   align-items: center;
   width: 100%;
-  height: 100%;
 `;
 
 const DescriptionText = styled.div`
   display: flex;
   flex-direction: column;
   gap: 16px;
-  max-width: 720px;
+  margin-right: 5%;
   background-color: ${colors.primary.white};
   padding: 30px 40px;
   border-radius: 2rem;
