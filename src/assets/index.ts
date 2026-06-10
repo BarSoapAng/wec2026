@@ -22,7 +22,6 @@ export { default as Towels } from "./faq/towels.png";
 
 // Hero Section
 export { default as PurpleSign } from "./hero/purple-sign.png";
-export { default as Umbrella } from "./hero/umbrella.png";
 export { default as WoodSign } from "./hero/wood-sign.png";
 
 // Schedule Section
