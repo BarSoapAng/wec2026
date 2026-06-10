@@ -13,6 +13,14 @@ export const colors = {
   primary: {
     white: "#FFF",
     gray: "#7a7a7a",
+    purple: "#9c87d6",
+    purpleLight: "#dccfff",
+  },
+  secondary: {
+    crimson: "#e55a77",
+    crimsonDark: "#b43f58",
+    redPastel: "#fe9292",
+    azure: "#2485a8",
   }
 };
 

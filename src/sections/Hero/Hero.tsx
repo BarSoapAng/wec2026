@@ -4,13 +4,16 @@ import { SectionWrapper } from "src/components";
 import { SectionId } from "../constants";
 import { mediaQueries } from "src/lib/responsive";
 import { colors } from "src/lib/styles";
+import { Umbrella } from "src/assets";
+import { DescriptionSign, ApplicationSign } from "src/components";
 
 const Hero: React.FC = () => {
   return (
     <HeroSection id={SectionId.HERO}>
-      <Sky>
-
-      </Sky>
+      <Sky />
+      <UmbrellaImage src={Umbrella} />
+      <ApplicationSign />
+      <DescriptionSign />
     </HeroSection>
   );
 };
@@ -25,7 +28,6 @@ const HeroSection = styled(SectionWrapper)`
 
 const Sky = styled.div`
   position: absolute;
-  z-index: 0;
   top: 0;
   left: 0;
   width: 100vw;
@@ -35,6 +37,10 @@ const Sky = styled.div`
   ${mediaQueries.medium} {
     height: 45vh;
   }
+`;
+
+const UmbrellaImage = styled.img`
+  z-index: 10;
 `;
 
 export default Hero;
