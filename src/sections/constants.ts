@@ -11,7 +11,7 @@ export enum SectionId {
 
 export const navItems = [
   { label: "About", href: `#${SectionId.ABOUT}` },
-  { label: "Schedule", href: `#${SectionId.SCHEDULE}` },
   { label: "Sponsors", href: `#${SectionId.SPONSORS}` },
+  { label: "Schedule", href: `#${SectionId.SCHEDULE}` },
   { label: "FAQ", href: `#${SectionId.FAQ}` },
 ];
