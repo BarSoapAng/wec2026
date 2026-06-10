@@ -1,5 +1,4 @@
-import { PageWrapper } from "./components";
-import Navbar from "src/sections/Navbar/Navbar";
+import { Navbar, PageWrapper } from "./components";
 import Hero from "src/sections/Hero/Hero";
 import About from "src/sections/About/About";
 import Sponsors from "src/sections/Sponsors/Sponsors";

@@ -8,3 +8,11 @@ export enum SectionId {
   FAQ = "faq",
   FOOTER = "footer",
 }
+
+export const navItems = [
+  { label: "Home", href: `#${SectionId.HERO}` },
+  { label: "About", href: `#${SectionId.ABOUT}` },
+  { label: "Schedule", href: `#${SectionId.SCHEDULE}` },
+  { label: "Sponsors", href: `#${SectionId.SPONSORS}` },
+  { label: "FAQ", href: `#${SectionId.FAQ}` },
+];
