@@ -175,7 +175,14 @@ const Center = styled.div`
 
 const Eyebrow = styled(Overline)`
   width: 100%;
+  max-width: 100%;
+  letter-spacing: 1px;
+  overflow-wrap: break-word;
   color: ${colors.accent.coralDark};
+
+  ${mediaQueries.tablet} {
+    font-size: 12px;
+  }
 `;
 
 const Tagline = styled(Body)`
@@ -215,13 +222,14 @@ const UmbrellaImg = styled.img`
   height: auto;
 
   ${mediaQueries.medium} {
-    top: 3vh;
+    top: 8vh;
     right: 4%;
-    width: 160px;
+    width: 150px;
   }
 
   ${mediaQueries.largeMobile} {
-    width: 130px;
+    top: 7vh;
+    width: 120px;
   }
 `;
 

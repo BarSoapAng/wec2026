@@ -46,6 +46,10 @@ const Bar = styled.header<{ $scrolled: boolean }>`
   display: flex;
   justify-content: center;
   padding: 14px 24px;
+
+  ${mediaQueries.largeMobile} {
+    padding: 10px 14px;
+  }
   background: ${({ $scrolled }) =>
     $scrolled ? "rgba(252, 229, 201, 0.85)" : "transparent"};
   backdrop-filter: ${({ $scrolled }) => ($scrolled ? "blur(8px)" : "none")};
@@ -69,6 +73,10 @@ const Logo = styled.a`
   letter-spacing: 2px;
   color: ${colors.accent.purple};
   text-decoration: none;
+
+  ${mediaQueries.largeMobile} {
+    font-size: 22px;
+  }
 `;
 
 const Links = styled.div`
