@@ -83,48 +83,6 @@ export const Header3 = styled.h3`
   }
 `;
 
-export const LargeBody = styled.p`
-  margin: 0px;
-  font-family: "Satoshi";
-  font-size: 20px;
-  font-weight: 400;
-  line-height: 160%;
-  letter-spacing: 0%;
-`;
-
-export const LargeBodyMedium = styled.p`
-  margin: 0px;
-  font-family: "Satoshi";
-  font-size: 20px;
-  font-weight: 500;
-  line-height: 160%;
-  letter-spacing: 0%;
-`;
-
-export const Medium = styled.p`
-  margin: 0;
-  padding: 0;
-  height: 30px;
-  font-family: "Castledown";
-  font-size: 20px;
-  font-weight: 900;
-  line-height: normal;
-  white-space: nowrap;
-`;
-
-export const LargeBodyBold = styled.p`
-  margin: 0px;
-  font-family: "Satoshi";
-  font-size: 20px;
-  font-weight: 700;
-  line-height: 160%;
-  letter-spacing: 0%;
-
-  ${mediaQueries.tablet} {
-    font-size: 16px;
-  }
-`;
-
 export const Body = styled.p`
   padding: 0px;
   margin: 0px;
@@ -152,7 +110,7 @@ export const BodyRegular = styled.p`
 export const BodyBold = styled.p`
   margin: 0px;
   font-family: "Satoshi";
-  font-size: 16px;
+  font-size: 20px;
   font-weight: 700;
   padding: 0px;
   margin: 0px;

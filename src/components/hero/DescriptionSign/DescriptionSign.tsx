@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { PurpleSign } from "src/assets";
-import { Body } from "src/lib/styles";
+import { Body, BodyBold } from "src/lib/styles";
 
 type DescriptionSignProps = {
   text?: string;
@@ -9,7 +9,7 @@ type DescriptionSignProps = {
 };
 
 const placeholderText =
-  "WHO ARE WE jiaoisjroiajsfoijfoajs joasjojdojosa";
+  "WHO ARE WE jiaoisjroiajsfoijfoajs joasjojdojosam ansd has,djha lkdhalkjhdalkj jhaslkjdjhalksjhdlka sjhdlkasjh aksjd hasklsjd halskjdj halksjd haksljd";
 
 const DescriptionSign: React.FC<DescriptionSignProps> = ({
   text = placeholderText,
@@ -19,6 +19,7 @@ const DescriptionSign: React.FC<DescriptionSignProps> = ({
     <SignWrapper className={className}>
       <SignImage src={PurpleSign} alt="" aria-hidden="true" />
       <TextBox>
+        <SignTextTitle>WHO ARE WE</SignTextTitle>
         <SignText>{text}</SignText>
       </TextBox>
     </SignWrapper>
@@ -26,39 +27,41 @@ const DescriptionSign: React.FC<DescriptionSignProps> = ({
 };
 
 const SignWrapper = styled.div`
-  display: grid;
-  width: min(100%, 620px);
   position: relative;
+  width: min(100%, 620px);
   isolation: isolate;
 `;
 
 const SignImage = styled.img`
-  grid-area: 1 / 1;
-  display: block;
+  position: relative;
   width: 100%;
   height: auto;
 `;
 
 const TextBox = styled.div`
-  grid-area: 1 / 1;
-  display: flex;
-  align-items: center;
+  position: absolute;
   justify-content: center;
-  box-sizing: border-box;
-  width: 100%;
-  height: 100%;
-  background-color: blue;
-  padding: 16% 14% 26%;
+  width: 94.5%;
+  height: 47.5%;
+  padding: 5% 7%;
   pointer-events: none;
+  top: 11.5%;
+  left: 4.5%;
+  transform: skewX(2deg) skewY(-1deg);
+`;
+
+const SignTextTitle = styled(BodyBold)`
+  color: inherit;
+  text-align: center;
+  overflow-wrap: anywhere;
+  margin-bottom: 10px;
 `;
 
 const SignText = styled(Body)`
-  max-width: 100%;
   color: inherit;
-  font-size: clamp(20px, 5vw, 42px);
-  line-height: 1.25;
   text-align: center;
   overflow-wrap: anywhere;
+  margin-bottom: 10px;
 `;
 
 export default DescriptionSign;

@@ -92,10 +92,6 @@ const NavLinks = styled.div`
   align-items: center;
   gap: 24px;
 
-  ${mediaQueries.tablet} {
-    gap: 14px;
-  }
-
   ${mediaQueries.largeMobile} {
     display: none;
   }
