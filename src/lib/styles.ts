@@ -7,8 +7,18 @@ export const colors = {
   },
   background: {
     sand: "#fce5c9",
+    sandDark: "#f3d3a8",
     skyLight: "#e1f7ff",
-    skyDark: "#b9d0f3"
+    skyDark: "#b9d0f3",
+    seaLight: "#bfe9f2",
+    sea: "#8fd3e6",
+    seaDark: "#5fb6cf",
+  },
+  accent: {
+    coral: "#f08c7d",
+    coralDark: "#d96b5b",
+    purple: "#a08fd6",
+    sun: "#e0a14f",
   },
   primary: {
     white: "#FFF",
