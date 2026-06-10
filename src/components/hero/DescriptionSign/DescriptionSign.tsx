@@ -2,25 +2,31 @@ import React from "react";
 import styled from "styled-components";
 import { PurpleSign } from "src/assets";
 import { Body, BodyBold } from "src/lib/styles";
+import { useDeviceSize } from "src/lib/useDeviceSize";
 
 type DescriptionSignProps = {
   text?: string;
   className?: string;
 };
 
-const placeholderText =
-  "WHO ARE WE jiaoisjroiajsfoijfoajs joasjojdojosam ansd has,djha lkdhalkjhdalkj jhaslkjdjhalksjhdlka sjhdlkasjh aksjd hasklsjd halskjdj halksjd haksljd";
+const descriptionText =
+  "Within Waterloo's undergraduate engineering competition, teams tackle  various engineering challenges, with top teams advancing to OEC and CEC.";
+const descriptionTextMobile =
+  "Teams tackle  various engineering challenges, with top teams advancing to OEC and CEC.";
 
 const DescriptionSign: React.FC<DescriptionSignProps> = ({
-  text = placeholderText,
+  text,
   className,
 }) => {
+  const isMobile = useDeviceSize("smallTablet");
+  const signText = text ?? (isMobile ? descriptionTextMobile : descriptionText);
+
   return (
     <SignWrapper className={className}>
-      <SignImage src={PurpleSign} alt="" aria-hidden="true" />
+      <SignImage src={PurpleSign} alt="" aria-hidden="true" draggable={false} />
       <TextBox>
-        <SignTextTitle>WHO ARE WE</SignTextTitle>
-        <SignText>{text}</SignText>
+        <SignTextTitle>WHAT IS WEC?</SignTextTitle>
+        <SignText>{signText}</SignText>
       </TextBox>
     </SignWrapper>
   );
@@ -36,14 +42,17 @@ const SignImage = styled.img`
   position: relative;
   width: 100%;
   height: auto;
+  pointer-events: none;
+  user-select: none;
 `;
 
 const TextBox = styled.div`
   position: absolute;
   justify-content: center;
+  align-content: center;
   width: 94.5%;
   height: 47.5%;
-  padding: 5% 7%;
+  padding: 5% 15%;
   pointer-events: none;
   top: 11.5%;
   left: 4.5%;

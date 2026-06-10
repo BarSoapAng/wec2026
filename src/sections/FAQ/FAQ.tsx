@@ -5,7 +5,7 @@ import { SectionId } from "../constants";
 import { mediaQueries } from "src/lib/responsive";
 import { colors, Header3, Body } from "src/lib/styles";
 import { Towel } from "src/assets";
-import { Starfish } from "src/components/hero/Decor";
+import { Starfish } from "src/components/hero/Decor/index";
 
 const FAQS: { q: string; a: string }[] = [
   {
@@ -69,14 +69,14 @@ const FAQ: React.FC = () => {
 const FAQSection = styled(SectionWrapper)`
   position: relative;
   background: ${colors.background.sand};
-  padding: 80px 6vw 120px;
+  padding: 50px 6vw;
   overflow: hidden;
 
   .towel-left,
   .towel-right {
     position: absolute;
     z-index: 0;
-    width: 150px;
+    width: 400px;
     opacity: 0.5;
     bottom: 60px;
   }
@@ -99,6 +99,8 @@ const FAQSection = styled(SectionWrapper)`
   }
 
   ${mediaQueries.tablet} {
+    padding: 50px 6vw;
+
     .towel-left,
     .towel-right,
     .faq-starfish {
@@ -116,7 +118,7 @@ const Content = styled.div`
   margin: 0 auto;
   display: flex;
   flex-direction: column;
-  gap: 28px;
+  gap: 20px;
 `;
 
 const List = styled.div`

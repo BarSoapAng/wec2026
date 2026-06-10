@@ -65,7 +65,7 @@ const SignBoard = styled.div<{
   width: 80%;
   height: 15%;
   padding: 0 2%;
-  transform: skewX(-6deg)
+  transform: skewX(-6deg);
   gap: 10px;
 `;
 

@@ -4,14 +4,7 @@ import { SectionWrapper } from "src/components";
 import { SectionId } from "../constants";
 import { mediaQueries } from "src/lib/responsive";
 import { colors, ButtonText, Body, Caption } from "src/lib/styles";
-import { WaveDivider } from "src/components/hero/Decor";
-
-const LINKS: { label: string; id: SectionId }[] = [
-  { label: "About", id: SectionId.ABOUT },
-  { label: "Sponsors", id: SectionId.SPONSORS },
-  { label: "Schedule", id: SectionId.SCHEDULE },
-  { label: "FAQ", id: SectionId.FAQ },
-];
+import { WaveDivider } from "src/components/hero/Decor/index";
 
 const SOCIALS = [
   { label: "Instagram", href: "https://instagram.com" },
@@ -31,14 +24,6 @@ const Footer: React.FC = () => {
 
         <Cols>
           <Col>
-            <ButtonText>EXPLORE</ButtonText>
-            {LINKS.map(({ label, id }) => (
-              <a key={id} href={`#${id}`}>
-                <Body>{label}</Body>
-              </a>
-            ))}
-          </Col>
-          <Col>
             <ButtonText>CONNECT</ButtonText>
             {SOCIALS.map(({ label, href }) => (
               <a key={label} href={href} target="_blank" rel="noreferrer">
@@ -50,7 +35,7 @@ const Footer: React.FC = () => {
       </Inner>
 
       <Bottom>
-        <Caption>© {2026} Waterloo Engineering Competition. See you at the beach 🏖️</Caption>
+        <Caption>© {2026} Waterloo Engineering Competition. Made with love by EngSoc 🏖️</Caption>
       </Bottom>
     </FooterSection>
   );
@@ -59,7 +44,7 @@ const Footer: React.FC = () => {
 const FooterSection = styled(SectionWrapper)`
   position: relative;
   background: linear-gradient(to bottom, ${colors.background.sea}, ${colors.background.seaDark});
-  padding: 90px 6vw 40px;
+  padding: 50px 6vw;
   color: ${colors.primary.white};
 
   .footer-wave {

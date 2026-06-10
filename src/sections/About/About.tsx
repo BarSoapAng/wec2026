@@ -11,8 +11,7 @@ const About: React.FC = () => {
     <AboutSection id={SectionId.ABOUT}>
       <SectionHeading>OUR COMPETITIONS</SectionHeading>
       <Intro>
-        Pick your event and dive in — from prototypes to pitches, there's a
-        wave for everyone.
+        Explore our competition streams and choose how you want to build and innovate. Each category offers a unique challenge designed to test real-world engineering skills.
       </Intro>
       <CameraArea>
         <Camera />
@@ -26,9 +25,13 @@ const AboutSection = styled(SectionWrapper)`
   flex-direction: column;
   align-items: center;
   background: ${colors.background.sand};
-  padding: 80px 0 40px;
+  padding: 50px 0;
   width: 100vw;
-  gap: 20px;
+  gap: 16px;
+
+  ${mediaQueries.tablet} {
+    padding: 50px 0;
+  }
 `;
 
 const Intro = styled(Body)`
@@ -39,8 +42,8 @@ const Intro = styled(Body)`
 
 const CameraArea = styled.div`
   width: 100%;
-  height: 100vh;
-  max-height: 700px;
+  height: 76vh;
+  max-height: 560px;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -48,7 +51,7 @@ const CameraArea = styled.div`
   ${mediaQueries.medium} {
     height: auto;
     max-height: none;
-    padding: 20px 0 40px;
+    padding: 12px 0 24px;
   }
 `;
 

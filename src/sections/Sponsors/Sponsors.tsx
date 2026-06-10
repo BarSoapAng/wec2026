@@ -5,7 +5,6 @@ import { SectionId } from "../constants";
 import { mediaQueries } from "src/lib/responsive";
 import { colors, ButtonText, Body, BodyBold } from "src/lib/styles";
 import { ArrowSign, Surfboards } from "src/assets";
-import { Plant } from "src/components/hero/Decor";
 
 type Tier = {
   name: string;
@@ -23,13 +22,14 @@ const Sponsors: React.FC = () => {
   return (
     <SponsorsSection id={SectionId.SPONSORS}>
       <SignpostImg src={ArrowSign} alt="" />
-      <Plant className="sponsors-plant" />
 
       <Content>
         <SectionHeading>OUR SPONSORS</SectionHeading>
         <Intro>
-          WEC is powered by partners who believe in student engineering. Want
-          your logo on the beach?
+          WEC is powered by sponsors who believe in student engineering. Your partnership will help us with the resources, mentorship, and opportunities for participants while directly engaging with some of University of Waterloo's brightest students.
+        </Intro>
+        <Intro>
+          Together, we can empower students and shape innovation.
         </Intro>
 
         <Tiers>
@@ -58,7 +58,7 @@ const Sponsors: React.FC = () => {
 const SponsorsSection = styled(SectionWrapper)`
   position: relative;
   background: ${colors.background.sand};
-  padding: 90px 6vw 110px;
+  padding: 50px 6vw;
   overflow: hidden;
 
   .sponsors-plant {
@@ -71,6 +71,10 @@ const SponsorsSection = styled(SectionWrapper)`
     ${mediaQueries.medium} {
       display: none;
     }
+  }
+
+  ${mediaQueries.tablet} {
+    padding: 50px 6vw;
   }
 `;
 
@@ -95,7 +99,7 @@ const Content = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  gap: 28px;
+  gap: 20px;
 `;
 
 const Intro = styled(Body)`
@@ -107,8 +111,8 @@ const Tiers = styled.div`
   width: 100%;
   display: flex;
   flex-direction: column;
-  gap: 24px;
-  margin-top: 12px;
+  gap: 18px;
+  margin-top: 4px;
 `;
 
 const TierRow = styled.div`
@@ -162,9 +166,8 @@ const Slot = styled.div`
 `;
 
 const SurfboardsImg = styled.img`
-  width: min(360px, 70%);
-  margin-top: 20px;
-  opacity: 0.95;
+  width: min(450px, 100%);
+  margin-top: 8px;
 `;
 
 export default Sponsors;

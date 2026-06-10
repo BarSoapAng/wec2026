@@ -4,7 +4,7 @@ import { SectionWrapper, SectionHeading } from "src/components";
 import { SectionId } from "../constants";
 import { mediaQueries } from "src/lib/responsive";
 import { colors, Header3, Body, ButtonText } from "src/lib/styles";
-import { Sun } from "src/components/hero/Decor";
+import { Sun } from "src/components/hero/Decor/index";
 
 const DAYS = ["SAT", "SUN"];
 const PLACEHOLDER_ROWS = [9, 10, 11, 12, 1, 2];
@@ -48,7 +48,7 @@ const Schedule: React.FC = () => {
 const ScheduleSection = styled(SectionWrapper)`
   position: relative;
   background: ${colors.background.sand};
-  padding: 80px 6vw 120px;
+  padding: 50px 6vw;
   display: flex;
   flex-direction: column;
   align-items: center;

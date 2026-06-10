@@ -1,5 +1,6 @@
 import { Navbar, PageWrapper } from "./components";
 import Hero from "src/sections/Hero/Hero";
+import HeroDescription from "src/sections/HeroDescription/HeroDescription";
 import About from "src/sections/About/About";
 import Sponsors from "src/sections/Sponsors/Sponsors";
 import Schedule from "src/sections/Schedule/Schedule";
@@ -11,6 +12,7 @@ function App() {
     <PageWrapper>
       <Navbar />
       <Hero />
+      <HeroDescription />
       <About />
       <Sponsors />
       <Schedule />

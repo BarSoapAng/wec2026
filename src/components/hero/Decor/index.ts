@@ -1,0 +1,9 @@
+export { default as Cloud } from "./Cloud";
+export { default as LifeRing } from "./LifeRing";
+export { default as PalmTree } from "./PalmTree";
+export { default as Plant } from "./Plant";
+export { default as Shell } from "./Shell";
+export { default as Starfish } from "./Starfish";
+export { default as Sun } from "./Sun";
+export { default as WaveDivider } from "./WaveDivider";
+export { default as Waves } from "./Waves";

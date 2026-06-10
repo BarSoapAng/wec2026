@@ -1,7 +1,8 @@
 import React from "react";
 import styled from "styled-components";
 import { Title } from "src/lib/styles";
-import { Shell } from "src/components/hero/Decor";
+import { mediaQueries } from "src/lib/responsive";
+import { Shell } from "src/components/hero/Decor/index";
 
 type Props = {
   children: React.ReactNode;
@@ -30,6 +31,12 @@ const Wrapper = styled.div`
 
   .heading-shell.flip {
     transform: scaleX(-1);
+  }
+
+  ${mediaQueries.tablet} {
+    .heading-shell {
+      display: none;
+    }
   }
 `;
 

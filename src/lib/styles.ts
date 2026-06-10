@@ -7,7 +7,7 @@ export const colors = {
   },
   background: {
     sand: "#fce5c9",
-    sandDark: "#f3d3a8",
+    sandDark: "#ebc492",
     skyLight: "#e1f7ff",
     skyDark: "#b9d0f3",
     seaLight: "#bfe9f2",
