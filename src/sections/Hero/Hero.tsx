@@ -35,7 +35,7 @@ const Hero: React.FC = () => {
       </ArrowSignWrapper>
 
       <Center>
-        <Overline>WATERLOO ENGINEERING COMPETITION</Overline>
+        <Eyebrow>WATERLOO ENGINEERING COMPETITION</Eyebrow>
         <Title>
           MAKE WAVES
           <br />
@@ -173,7 +173,13 @@ const Center = styled.div`
   }
 `;
 
+const Eyebrow = styled(Overline)`
+  width: 100%;
+  color: ${colors.accent.coralDark};
+`;
+
 const Tagline = styled(Body)`
+  width: 100%;
   max-width: 460px;
   color: #2a2a2a;
 `;
