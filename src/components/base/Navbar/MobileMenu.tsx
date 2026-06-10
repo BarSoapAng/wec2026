@@ -2,7 +2,7 @@ import { useRef, useState } from "react";
 import type { MouseEvent } from "react";
 import { mediaQueries } from "src/lib/responsive";
 import { BodyBold, colors } from "src/lib/styles";
-import { navItems, SectionId } from "src/sections/constants";
+import { navItems } from "src/sections/constants";
 import styled from "styled-components";
 
 const DROPDOWN_ANIMATION_MS = 250;
@@ -51,14 +51,6 @@ const MobileMenu = () => {
         <MenuLine />
       </MenuButton>
       <Dropdown $isOpen={isOpen} aria-hidden={!isOpen}>
-        <LogoLink
-          href={`#${SectionId.HERO}`}
-          onMouseDown={(event) => event.preventDefault()}
-          onClick={(event) => handleLinkClick(event, `#${SectionId.HERO}`)}
-          tabIndex={isOpen ? 0 : -1}
-        >
-          WEC
-        </LogoLink>
         {navItems.map((item) => (
           <DropdownLink
             href={item.href}
@@ -79,7 +71,7 @@ const Container = styled.div`
   position: relative;
   display: none;
 
-  ${mediaQueries.largeMobile} {
+  ${mediaQueries.smallTablet} {
     display: block;
   }
 `;
@@ -136,9 +128,9 @@ const Dropdown = styled.div<{ $isOpen: boolean }>`
   z-index: 1000;
   display: flex;
   flex-direction: column;
-  width: min(100vw, 430px);
+  width: 100vw;
   max-height: ${({ $isOpen }) => ($isOpen ? "100dvh" : "0")};
-  padding: 112px 28px 32px;
+  padding: 112px 50px 32px;
   background: ${colors.secondary.redPastel};
   overflow: hidden;
   opacity: ${({ $isOpen }) => ($isOpen ? 1 : 0)};
@@ -149,24 +141,6 @@ const Dropdown = styled.div<{ $isOpen: boolean }>`
     max-height ${DROPDOWN_ANIMATION_MS}ms ease,
     opacity ${DROPDOWN_ANIMATION_MS}ms ease,
     transform ${DROPDOWN_ANIMATION_MS}ms ease;
-`;
-
-const LogoLink = styled.a`
-  position: absolute;
-  top: 24px;
-  left: 24px;
-  color: ${colors.secondary.crimsonDark};
-  font-family: "Castledown";
-  font-size: 28px;
-  font-weight: 900;
-  line-height: 1;
-  text-decoration: none;
-  transition: color 0.2s ease;
-
-  &:hover,
-  &:focus-visible {
-    color: ${colors.secondary.crimson};
-  }
 `;
 
 const DropdownLink = styled.a`

@@ -38,6 +38,7 @@ const Intro = styled(Body)`
   max-width: 560px;
   text-align: center;
   padding: 0 24px;
+  margin-bottom: 24px;
 `;
 
 const CameraArea = styled.div`

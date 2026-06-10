@@ -10,7 +10,6 @@ export enum SectionId {
 }
 
 export const navItems = [
-  { label: "Home", href: `#${SectionId.HERO}` },
   { label: "About", href: `#${SectionId.ABOUT}` },
   { label: "Schedule", href: `#${SectionId.SCHEDULE}` },
   { label: "Sponsors", href: `#${SectionId.SPONSORS}` },

@@ -38,8 +38,7 @@ const Schedule: React.FC = () => {
       </BoardWrapper>
 
       <Note>
-        The full weekend schedule drops closer to the event — keep an eye on our
-        socials!
+        Keep an eye on our socials!
       </Note>
     </ScheduleSection>
   );

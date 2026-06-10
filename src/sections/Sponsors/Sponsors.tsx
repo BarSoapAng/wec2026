@@ -4,7 +4,7 @@ import { SectionWrapper, SectionHeading } from "src/components";
 import { SectionId } from "../constants";
 import { mediaQueries } from "src/lib/responsive";
 import { colors, ButtonText, Body, BodyBold } from "src/lib/styles";
-import { ArrowSign, Surfboards } from "src/assets";
+import { Surfboards } from "src/assets";
 
 type Tier = {
   name: string;
@@ -21,8 +21,6 @@ const TIERS: Tier[] = [
 const Sponsors: React.FC = () => {
   return (
     <SponsorsSection id={SectionId.SPONSORS}>
-      <SignpostImg src={ArrowSign} alt="" />
-
       <Content>
         <SectionHeading>OUR SPONSORS</SectionHeading>
         <Intro>
@@ -75,19 +73,6 @@ const SponsorsSection = styled(SectionWrapper)`
 
   ${mediaQueries.tablet} {
     padding: 50px 6vw;
-  }
-`;
-
-const SignpostImg = styled.img`
-  position: absolute;
-  z-index: 1;
-  top: 70px;
-  right: 4%;
-  width: 200px;
-  opacity: 0.9;
-
-  ${mediaQueries.medium} {
-    display: none;
   }
 `;
 

@@ -2,6 +2,7 @@ import React from "react";
 import { FaInstagram } from "react-icons/fa";
 import styled from "styled-components";
 import { WoodSign } from "src/assets";
+import { mediaQueries } from "src/lib/responsive";
 import { Header3, colors } from "src/lib/styles";
 
 type ApplicationSignProps = {
@@ -77,13 +78,33 @@ const SignText = styled(Header3)`
 `;
 
 const SignLink = styled(SignText).attrs({ as: "a" })`
+  position: relative;
+  display: inline-block;
   color: ${colors.text.black};
   text-decoration: none;
+  transition: color ease 0.1s;
+
+  &::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: -2px;
+    height: 2px;
+    background: currentColor;
+    transform: scaleX(0);
+    transform-origin: left center;
+    transition: transform 0.2s ease;
+  }
 
   &:hover,
   &:focus-visible {
     color: ${colors.secondary.crimsonDark};
-    text-decoration: underline;
+  }
+
+  &:hover::after,
+  &:focus-visible::after {
+    transform: scaleX(1);
   }
 `;
 
@@ -94,6 +115,11 @@ const SocialLink = styled(SignLink)`
   color: ${colors.text.black};
   font-size: 34px;
   line-height: 1;
+  transform: skewX(6deg);
+
+  ${mediaQueries.tablet} {
+    font-size: 26px;
+  }
 `;
 
 export default ApplicationSign;

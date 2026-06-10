@@ -1,6 +1,5 @@
 import { deviceBreakpoints, TDeviceType } from "src/lib/responsive";
-
-import { useWindowSize } from "./useWindowSize";
+import { useWindowSize } from "src/lib/useWindowSize";
 
 /**
  * A hook to determine the type of device the app is running on, based on the screen size.

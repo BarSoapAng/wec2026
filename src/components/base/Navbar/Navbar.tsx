@@ -68,7 +68,7 @@ const InnerContainer = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  width: min(100%, 1200px);
+  width: min(90%, 1200px);
   gap: 32px;
 `;
 
@@ -92,7 +92,7 @@ const NavLinks = styled.div`
   align-items: center;
   gap: 24px;
 
-  ${mediaQueries.largeMobile} {
+  ${mediaQueries.smallTablet} {
     display: none;
   }
 `;

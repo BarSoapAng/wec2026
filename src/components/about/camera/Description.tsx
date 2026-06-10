@@ -47,9 +47,7 @@ const DescriptionText = styled.div`
   border-radius: 28px;
   background:
     linear-gradient(135deg, ${colors.primary.white} 0%, ${colors.background.sand} 100%);
-  box-shadow:
-    10px 10px 0 ${colors.primary.purpleLight},
-    0 16px 36px #0000001c;
+  box-shadow: 10px 10px 0 ${colors.secondary.redPastel};
 
   &::after {
     content: "";
@@ -73,8 +71,7 @@ const DescriptionText = styled.div`
     padding: 26px 24px 30px;
     border-radius: 20px;
     box-shadow:
-      6px 6px 0 ${colors.primary.purpleLight},
-      0 12px 24px #00000017;
+      6px 6px 0 ${colors.primary.purpleLight}
   }
 `;
 
