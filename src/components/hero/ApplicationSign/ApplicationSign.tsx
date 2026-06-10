@@ -2,7 +2,7 @@ import React from "react";
 import { FaInstagram } from "react-icons/fa";
 import styled from "styled-components";
 import { WoodSign } from "src/assets";
-import { Body, colors } from "src/lib/styles";
+import { Header3, colors } from "src/lib/styles";
 
 type ApplicationSignProps = {
   dateText?: string;
@@ -20,13 +20,13 @@ const ApplicationSign: React.FC<ApplicationSignProps> = ({
   return (
     <SignWrapper className={className}>
       <SignImage src={WoodSign} alt="" aria-hidden="true" draggable={false} />
-      <SignBoard $x={8.62} $y={0}>
+      <SignBoard $x={10} $y={0.1}>
         <SignText>{dateText}</SignText>
       </SignBoard>
-      <SignBoard $x={0} $y={20.34}>
-        <SignLink href={applyHref}>apply</SignLink>
+      <SignBoard $x={11.5} $y={20.2}>
+        <SignLink href={applyHref}>Apply by xx-xx-xxxx {"->"}</SignLink>
       </SignBoard>
-      <SignBoard $x={8.62} $y={40.68}>
+      <SignBoard $x={10} $y={40.7}>
         <SocialLink href={instagramHref} aria-label="Instagram">
           <FaInstagram aria-hidden="true" focusable="false" />
         </SocialLink>
@@ -49,7 +49,12 @@ const SignImage = styled.img`
   user-select: none;
 `;
 
-const SignBoard = styled.div<{ $x: number; $y: number }>`
+const SignBoard = styled.div<{
+  $x: number;
+  $y: number;
+  $skewX?: number;
+  $skewY?: number;
+}>`
   position: absolute;
   top: ${({ $y }) => $y}%;
   left: ${({ $x }) => $x}%;
@@ -57,15 +62,15 @@ const SignBoard = styled.div<{ $x: number; $y: number }>`
   align-items: center;
   justify-content: center;
   box-sizing: border-box;
-  width: 91.38%;
-  height: 15.59%;
-  padding: 3% 12%;
-  background-color: ${colors.background.skyLight};
+  width: 80%;
+  height: 15%;
+  padding: 0 2%;
+  transform: skewX(-6deg)
+  gap: 10px;
 `;
 
-const SignText = styled(Body)`
+const SignText = styled(Header3)`
   color: ${colors.text.black};
-  font-size: clamp(18px, 5vw, 32px);
   line-height: 1.2;
   text-align: center;
   overflow-wrap: anywhere;
@@ -77,23 +82,18 @@ const SignLink = styled(SignText).attrs({ as: "a" })`
 
   &:hover,
   &:focus-visible {
+    color: ${colors.secondary.crimsonDark};
     text-decoration: underline;
   }
 `;
 
-const SocialLink = styled.a`
+const SocialLink = styled(SignLink)`
   display: inline-flex;
   align-items: center;
   justify-content: center;
   color: ${colors.text.black};
-  font-size: clamp(26px, 7vw, 44px);
+  font-size: 34px;
   line-height: 1;
-  text-decoration: none;
-
-  &:hover,
-  &:focus-visible {
-    color: ${colors.secondary.crimsonDark};
-  }
 `;
 
 export default ApplicationSign;
