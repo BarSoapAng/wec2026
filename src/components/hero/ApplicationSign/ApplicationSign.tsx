@@ -13,9 +13,9 @@ type ApplicationSignProps = {
 };
 
 const ApplicationSign: React.FC<ApplicationSignProps> = ({
-  dateText = "June 1, 2026",
-  applyHref = "https://google.com",
-  instagramHref = "https://instagram.com",
+  dateText = "July 19, 2026",
+  applyHref = "https://forms.gle/3qWRKgpqZURWYXxU6",
+  instagramHref = "https://www.instagram.com/uwengcomp/",
   className,
 }) => {
   return (
@@ -25,10 +25,12 @@ const ApplicationSign: React.FC<ApplicationSignProps> = ({
         <SignText>{dateText}</SignText>
       </SignBoard>
       <SignBoard $x={11.5} $y={20.2}>
-        <SignLink href={applyHref}>Apply by xx-xx-xxxx {"->"}</SignLink>
+        <SignLink href={applyHref} target="_blank" rel="noreferrer">
+          Apply by July 12, 2026 {"->"}
+        </SignLink>
       </SignBoard>
       <SignBoard $x={10} $y={40.7}>
-        <SocialLink href={instagramHref} aria-label="Instagram">
+        <SocialLink href={instagramHref} aria-label="Instagram" target="_blank" rel="noreferrer">
           <FaInstagram aria-hidden="true" focusable="false" />
         </SocialLink>
       </SignBoard>

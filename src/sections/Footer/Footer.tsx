@@ -7,9 +7,9 @@ import { colors, ButtonText, Body, Caption } from "src/lib/styles";
 import { WaveDivider } from "src/components/hero/Decor/index";
 
 const SOCIALS = [
-  { label: "Instagram", href: "https://instagram.com" },
+  { label: "Instagram", href: "https://www.instagram.com/uwengcomp/" },
   { label: "LinkedIn", href: "https://linkedin.com" },
-  { label: "Email", href: "mailto:hello@watengcomp.ca" },
+  { label: "Email", href: "mailto:wec.b@engsoc.uwaterloo.ca" },
 ];
 
 const Footer: React.FC = () => {

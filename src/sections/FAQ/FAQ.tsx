@@ -7,26 +7,33 @@ import { colors, Header3, Body } from "src/lib/styles";
 import { Towel } from "src/assets";
 import { Starfish } from "src/components/hero/Decor/index";
 
-const FAQS: { q: string; a: string }[] = [
+type FAQAnswer = string | string[];
+
+const FAQS: { q: string; a: FAQAnswer }[] = [
   {
-    q: "When and where is WEC?",
-    a: "Dates and venue are being finalized — check back soon and follow our socials for the announcement.",
+    q: "Who can join WEC?",
+    a: "Any undergraduate Waterloo engineering student may join!",
   },
   {
-    q: "Who can participate?",
-    a: "Any University of Waterloo engineering student, from 1A all the way to graduate studies. All skill levels welcome.",
+    q: "Why join WEC?",
+    a: [
+      "Enjoy FREE meals, swag, & networking sessions",
+      "Be mentored (and potentially recruited) by industry professionals & discipline experts",
+      "Develop an elaborate project you're proud of",
+      "Compete for a chance to represent Waterloo engineering at provincials (OEC) & nationals (CEC)!",
+    ],
   },
   {
-    q: "Do I need a team?",
-    a: "Most competitions are team-based (2–4 people), but you can register solo and we'll help match you with a team.",
+    q: "Can I compete individually?",
+    a: "You may compete individually. However, in competitions that allow teams of 4, competing individually is not recommended. If you would like to be matched to a team of other individual competitors, please indicate that on the sign-up form. Note that team matching is based on interest and not guaranteed.",
   },
   {
-    q: "How much does it cost?",
-    a: "Nothing! WEC is completely free for all participants thanks to our sponsors.",
+    q: "What should I bring to WEC?",
+    a: "You may bring a laptop, charger, course notes, and any other reference material. Competition-specific materials will be provided.",
   },
   {
-    q: "How do I register?",
-    a: "Registration opens closer to the event. Sign up to our mailing list and socials so you don't miss it.",
+    q: "Who judges WEC?",
+    a: "Industry professionals and Waterloo engineering professors will judge your projects. You will get a chance to receive direct feedback and guidance from our accomplished pool of judges!",
   },
 ];
 
@@ -55,7 +62,17 @@ const FAQ: React.FC = () => {
                   <Toggle $open={isOpen}>+</Toggle>
                 </Question>
                 <Answer $open={isOpen}>
-                  <Body>{a}</Body>
+                  <AnswerContent $open={isOpen}>
+                    {Array.isArray(a) ? (
+                      <BulletList>
+                        {a.map((item) => (
+                          <li key={item}>{item}</li>
+                        ))}
+                      </BulletList>
+                    ) : (
+                      <Body>{a}</Body>
+                    )}
+                  </AnswerContent>
                 </Answer>
               </Item>
             );
@@ -169,11 +186,26 @@ const Answer = styled.div<{ $open: boolean }>`
   display: grid;
   grid-template-rows: ${({ $open }) => ($open ? "1fr" : "0fr")};
   transition: grid-template-rows 0.25s ease;
+`;
 
-  & > p {
-    overflow: hidden;
-    padding: ${({ $open }) => ($open ? "0 24px 22px" : "0 24px")};
-    transition: padding 0.25s ease;
+const AnswerContent = styled.div<{ $open: boolean }>`
+  overflow: hidden;
+  padding: ${({ $open }) => ($open ? "0 24px 22px" : "0 24px")};
+  transition: padding 0.25s ease;
+`;
+
+const BulletList = styled.ul`
+  margin: 0;
+  padding-left: 24px;
+  color: ${colors.text.black};
+  font-family: "Satoshi";
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 160%;
+  letter-spacing: 0%;
+
+  ${mediaQueries.tablet} {
+    font-size: 16px;
   }
 `;
 
