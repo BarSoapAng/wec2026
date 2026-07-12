@@ -12,7 +12,7 @@ type FAQAnswer = string | string[];
 const FAQS: { q: string; a: FAQAnswer }[] = [
   {
     q: "Who can join WEC?",
-    a: "Any undergraduate Waterloo engineering student may join!",
+    a: "Any undergraduate Waterloo engineering student that is on term in Spring 2026 may join!",
   },
   {
     q: "Why join WEC?",
