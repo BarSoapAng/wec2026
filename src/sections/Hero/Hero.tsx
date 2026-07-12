@@ -3,7 +3,7 @@ import styled, { keyframes } from "styled-components";
 import { ApplicationSign, Cloud, HeroSea, SectionWrapper } from "src/components";
 import { SectionId } from "../constants";
 import { mediaQueries } from "src/lib/responsive";
-import { colors } from "src/lib/styles";
+import { Header1, colors } from "src/lib/styles";
 import { Umbrella } from "src/assets";
 
 const Hero: React.FC = () => {
@@ -27,6 +27,7 @@ const Hero: React.FC = () => {
       </Sky>
       <Sand />
       <HeroSea />
+      <HeroTitle>Waterloo Engineering Competition</HeroTitle>
       <UmbrellaImage src={Umbrella} alt="" aria-hidden="true" draggable={false} />
       <ApplicationSignPosition>
         <ApplicationSign />
@@ -137,6 +138,52 @@ const Sand = styled.div`
 
   ${mediaQueries.smallTablet} {
     top: 320px;
+  }
+`;
+
+const HeroTitle = styled(Header1)`
+  position: absolute;
+  top: 30%;
+  left: 8%;
+  z-index: 30;
+  max-width: 560px;
+  color: ${colors.text.black};
+  font-size: clamp(44px, 5.4vw, 76px);
+  line-height: 0.96;
+  text-wrap: balance;
+  text-shadow: 3px 3px 0 ${colors.primary.white};
+
+  ${mediaQueries.medium} {
+    top: 24%;
+    left: 7%;
+    max-width: 470px;
+    font-size: 58px;
+  }
+
+  ${mediaQueries.tablet} {
+    top: 14%;
+    left: 8%;
+    max-width: 360px;
+    font-size: 42px;
+  }
+
+  ${mediaQueries.smallTablet} {
+    top: 13%;
+    left: 6%;
+    max-width: 290px;
+    font-size: 34px;
+    text-shadow: 2px 2px 0 ${colors.primary.white};
+  }
+
+  ${mediaQueries.largeMobile} {
+    top: 14%;
+    max-width: 240px;
+    font-size: 28px;
+  }
+
+  ${mediaQueries.smallMobile} {
+    max-width: 220px;
+    font-size: 24px;
   }
 `;
 

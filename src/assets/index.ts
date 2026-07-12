@@ -1,6 +1,6 @@
 
 // Hero Section
-export { default as Umbrella } from "./hero/umbrella.png";
+export { default as Umbrella } from "./hero/umbrella.svg";
 export { default as Billboard } from "./hero/sign.png";
 export { default as ArrowSign } from "./hero/sign2.png";
 export { default as FramedSign } from "./hero/sign3.png";
