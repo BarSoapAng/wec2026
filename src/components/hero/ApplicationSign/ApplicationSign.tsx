@@ -26,14 +26,6 @@ const ApplicationSign: React.FC<ApplicationSignProps> = ({
   instagramHref = "https://www.instagram.com/uwengcomp/",
   className,
 }) => {
-  const handleApplyClick = () => {
-    (window as GtagWindow).gtag?.("event", "apply_by_link_click", {
-      link_text: "Apply by July 12, 2026",
-      link_url: applyHref,
-      transport_type: "beacon",
-    });
-  };
-
   return (
     <SignWrapper className={className}>
       <SignImage src={WoodSign} alt="" aria-hidden="true" draggable={false} />
@@ -41,8 +33,8 @@ const ApplicationSign: React.FC<ApplicationSignProps> = ({
         <SignText>{dateText}</SignText>
       </SignBoard>
       <SignBoard $x={11.5} $y={20.2}>
-        <SignLink href={applyHref} target="_blank" rel="noreferrer" onClick={handleApplyClick}>
-          Apply by July 12, 2026 {"->"}
+        <SignLink>
+          See you soon :)
         </SignLink>
       </SignBoard>
       <SignBoard $x={10} $y={40.7}>
