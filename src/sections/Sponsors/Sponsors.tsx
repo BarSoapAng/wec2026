@@ -4,9 +4,42 @@ import { SectionWrapper, SectionHeading } from "src/components";
 import { SectionId } from "../constants";
 import { mediaQueries } from "src/lib/responsive";
 import { colors, Body, BodyBold } from "src/lib/styles";
-import { Surfboards } from "src/assets";
+import {
+  Surfboards,
+  Cellect,
+  Cocoa,
+  Communitech,
+  Hatch,
+  Innoxtra,
+  Octopodi,
+  Parsons,
+  RubberDuck,
+  Sense,
+  Sff,
+  UwEng,
+  Westinghouse,
+} from "src/assets";
 
-const SPONSORS = ["Sanford Fleming Foundation", "Faculty of Engineering"];
+type SponsorItem = {
+  name: string;
+  logo?: string;
+  isTextOnly?: boolean;
+};
+
+const SPONSORS: SponsorItem[] = [
+  { name: "Sanford Fleming Foundation", logo: Sff },
+  { name: "Faculty of Engineering", logo: UwEng },
+  { name: "Cellect", logo: Cellect },
+  { name: "Cocoa", logo: Cocoa },
+  { name: "Communitech", logo: Communitech },
+  { name: "Hatch", logo: Hatch },
+  { name: "Innoxtra", logo: Innoxtra },
+  { name: "Octopodi", logo: Octopodi },
+  { name: "Parsons", logo: Parsons },
+  { name: "RubberDuck", logo: RubberDuck },
+  { name: "Sense", logo: Sense },
+  { name: "Westinghouse", logo: Westinghouse },
+];
 
 const Sponsors: React.FC = () => {
   return (
@@ -22,8 +55,12 @@ const Sponsors: React.FC = () => {
 
         <SponsorsList>
           {SPONSORS.map((sponsor) => (
-            <Slot key={sponsor}>
-              <BodyBold>{sponsor}</BodyBold>
+            <Slot key={sponsor.name}>
+              {sponsor.isTextOnly ? (
+                <BodyBold>{sponsor.name}</BodyBold>
+              ) : (
+                <SponsorLogo src={sponsor.logo} alt={sponsor.name} />
+              )}
             </Slot>
           ))}
         </SponsorsList>
@@ -75,25 +112,35 @@ const Intro = styled(Body)`
 
 const SponsorsList = styled.div`
   width: 100%;
-  display: flex;
-  flex-direction: column;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 12px;
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 14px;
   margin-top: 4px;
+
+  ${mediaQueries.mediumTablet} {
+    grid-template-columns: 1fr;
+  }
 `;
 
 const Slot = styled.div`
   width: 100%;
-  min-height: 70px;
+  min-height: 90px;
   display: flex;
   align-items: center;
   justify-content: center;
   background: ${colors.primary.white};
   border: 2px dashed ${colors.background.seaDark};
   border-radius: 14px;
+  padding: 18px 20px;
   color: ${colors.text.black};
   opacity: 0.85;
+`;
+
+const SponsorLogo = styled.img`
+  max-width: 100%;
+  max-height: 56px;
+  object-fit: contain;
+  display: block;
 `;
 
 const SurfboardsImg = styled.img`
