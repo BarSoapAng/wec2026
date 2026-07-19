@@ -5,24 +5,14 @@ import { WoodSign } from "src/assets";
 import { mediaQueries } from "src/lib/responsive";
 import { Header3, colors } from "src/lib/styles";
 
-type GtagWindow = Window & {
-  gtag?: (
-    command: "event",
-    eventName: string,
-    params: Record<string, string | number>
-  ) => void;
-};
-
 type ApplicationSignProps = {
   dateText?: string;
-  applyHref?: string;
   instagramHref?: string;
   className?: string;
 };
 
 const ApplicationSign: React.FC<ApplicationSignProps> = ({
   dateText = "July 19, 2026",
-  applyHref = "https://forms.gle/3qWRKgpqZURWYXxU6",
   instagramHref = "https://www.instagram.com/uwengcomp/",
   className,
 }) => {
