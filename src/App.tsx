@@ -4,6 +4,7 @@ import HeroDescription from "src/sections/HeroDescription/HeroDescription";
 import About from "src/sections/About/About";
 import Sponsors from "src/sections/Sponsors/Sponsors";
 import Schedule from "src/sections/Schedule/Schedule";
+import Map from "src/sections/Map/Map";
 import FAQ from "src/sections/FAQ/FAQ";
 import Footer from "src/sections/Footer/Footer";
 
@@ -16,6 +17,7 @@ function App() {
       <About />
       <Sponsors />
       <Schedule />
+      <Map />
       <FAQ />
       <Footer />
     </PageWrapper>

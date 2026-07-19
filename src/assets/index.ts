@@ -27,6 +27,9 @@ export { default as WoodSign } from "./hero/wood-sign.png";
 // Schedule Section
 export { default as BoardSign } from "./schedule/board-sign.png";
 
+// Map Section
+export { default as MapImage } from "./map/image.png";
+
 // Sponsors Section
 export { default as SponsorsBlue } from "./sponsors/sponsors-blue.png";
 export { default as SponsorsPurple } from "./sponsors/sponsors-purple.png";
