@@ -3,11 +3,38 @@ import styled from "styled-components";
 import { SectionWrapper, SectionHeading } from "src/components";
 import { SectionId } from "../constants";
 import { mediaQueries } from "src/lib/responsive";
-import { colors, Header3, Body, ButtonText } from "src/lib/styles";
+import { colors } from "src/lib/styles";
 import { Sun } from "src/components/hero/Decor/index";
 
-const DAYS = ["SAT", "SUN"];
-const PLACEHOLDER_ROWS = [9, 10, 11, 12, 1, 2];
+const SCHEDULE_ROWS: [string, string[]][] = [
+  ["8:00 AM", ["Arrival & Check-in"]],
+  [
+    "8:30 AM",
+    ["Welcome Ceremony + C&D Breakfast", "Competitor Briefings"],
+  ],
+  [
+    "9:00 AM",
+    ["Competition time + Question period begins"],
+  ],
+  ["9:30 AM", ["Competition time", "Question period ends at 9:15 AM"]],
+  ["12:00 PM", ["Lunch"]],
+  [
+    "1:00 PM",
+    ["Competition time"],
+  ],
+  [
+    "3:00 PM",
+    [
+      "Submission deadline at 3:00 PM",
+      "All competitors must be in Floor 2 Event Space",
+      "Presentation order announced at 3:15 PM",
+    ],
+  ],
+  ["3:30 PM", ["Judging time"]],
+  ["6:30 PM", ["Networking Reception + Dinner"]],
+  ["7:00 PM", ["Awards Ceremony"]],
+  ["7:30 PM", ["More Networking!"]],
+];
 
 const Schedule: React.FC = () => {
   return (
@@ -15,31 +42,28 @@ const Schedule: React.FC = () => {
       <Sun className="schedule-sun" />
       <SectionHeading>SCHEDULE</SectionHeading>
 
-      <BoardWrapper>
-        <Board>
-          <Columns>
-            {DAYS.map((day) => (
-              <Column key={day}>
-                <Header3>{day}</Header3>
-                {PLACEHOLDER_ROWS.map((_, i) => (
-                  <Row key={i} />
-                ))}
-              </Column>
+      <ScheduleCard>
+        <ScheduleTable>
+          <thead>
+            <tr>
+              <th>TIME</th>
+              <th>EVENT</th>
+            </tr>
+          </thead>
+          <tbody>
+            {SCHEDULE_ROWS.map(([time, activities]) => (
+              <tr key={time}>
+                <TimeCell>{time}</TimeCell>
+                <Cell>
+                  {activities.map((item) => (
+                    <CellContent key={item}>{item}</CellContent>
+                  ))}
+                </Cell>
+              </tr>
             ))}
-          </Columns>
-          <Stamp>
-            <ButtonText>COMING SOON</ButtonText>
-          </Stamp>
-        </Board>
-        <Posts>
-          <Post />
-          <Post />
-        </Posts>
-      </BoardWrapper>
-
-      <Note>
-        Keep an eye on our socials!
-      </Note>
+          </tbody>
+        </ScheduleTable>
+      </ScheduleCard>
     </ScheduleSection>
   );
 };
@@ -69,103 +93,146 @@ const ScheduleSection = styled(SectionWrapper)`
   }
 `;
 
-const BoardWrapper = styled.div`
+const ScheduleCard = styled.div`
   position: relative;
   z-index: 1;
   width: 100%;
-  max-width: 760px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-`;
-
-const Board = styled.div`
-  position: relative;
-  width: 100%;
-  background: linear-gradient(160deg, #d39a5c, #b9803f);
-  border: 10px solid #9c6a31;
+  max-width: 900px;
+  padding: 0;
+  background: transparent;
   border-radius: 18px;
-  padding: 36px 28px;
-  box-shadow: 0 14px 30px rgba(0, 0, 0, 0.18);
-
-  ${mediaQueries.tablet} {
-    padding: 24px 16px;
-  }
+  box-shadow: 0 10px 24px rgba(0, 0, 0, 0.12);
 `;
 
-const Columns = styled.div`
-  display: grid;
-  grid-template-columns: 1fr 1fr;
-  gap: 28px;
-  filter: blur(1px);
-  opacity: 0.65;
-
-  ${mediaQueries.tablet} {
-    gap: 16px;
-  }
-`;
-
-const Column = styled.div`
+const ScheduleTable = styled.table`
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  overflow: hidden;
+  border-radius: 10px;
   background: ${colors.primary.white};
-  border-radius: 12px;
-  padding: 18px;
-  display: flex;
-  flex-direction: column;
-  gap: 12px;
+  color: ${colors.text.black};
 
-  h3 {
+  th,
+  td {
+    padding: 18px 24px;
     text-align: center;
+    vertical-align: top;
+    border-bottom: 1px solid ${colors.background.skyDark};
   }
-`;
 
-const Row = styled.div`
-  height: 22px;
-  border-radius: 6px;
-  background: ${colors.background.sandDark};
-`;
-
-const Stamp = styled.div`
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%) rotate(-8deg);
-  padding: 14px 28px;
-  background: ${colors.accent.coral};
-  border: 3px solid ${colors.primary.white};
-  border-radius: 14px;
-  color: ${colors.primary.white};
-  box-shadow: 0 6px 16px rgba(0, 0, 0, 0.2);
-
-  p {
+  th {
+    background: ${colors.accent.coral};
     color: ${colors.primary.white};
-    font-size: 28px;
+    font-family: "Castledown";
+    font-size: 18px;
+    font-weight: 900;
+    letter-spacing: 0.04em;
+  }
 
-    ${mediaQueries.tablet} {
-      font-size: 20px;
+  th:first-child {
+    width: 170px;
+  }
+
+  tbody tr:last-child td {
+    border-bottom: 0;
+  }
+
+  tbody tr:nth-child(even) td {
+    background: ${colors.background.skyLight};
+  }
+
+  tbody tr:hover td {
+    background: ${colors.background.seaLight};
+  }
+
+  ${mediaQueries.tablet} {
+    th,
+    td {
+      padding: 14px 16px;
+    }
+
+    th {
+      font-size: 15px;
+    }
+  }
+
+  ${mediaQueries.mediumTablet} {
+    display: block;
+    background: transparent;
+
+    thead {
+      display: none;
+    }
+
+    tbody,
+    tr,
+    td {
+      display: block;
+    }
+
+    tbody tr {
+      margin-bottom: 10px;
+      border-radius: 10px;
+      overflow: hidden;
+      background: ${colors.primary.white};
+    }
+
+    tbody tr:nth-child(even) td {
+      background: ${colors.primary.white};
+    }
+
+    tbody tr:hover td {
+      background: ${colors.primary.white};
+    }
+
+    td {
+      min-height: 0;
+      padding: 12px 16px;
+      position: relative;
+      border-bottom: 0;
+      font-size: 14px;
+      line-height: 145%;
     }
   }
 `;
 
-const Posts = styled.div`
-  width: 70%;
-  display: flex;
-  justify-content: space-between;
-  padding: 0 12%;
+const TimeCell = styled.td`
+  width: 170px;
+  background: ${colors.background.skyLight};
+  border-right: 1px solid ${colors.background.skyDark};
+  color: ${colors.accent.coralDark};
+  font-family: "Castledown";
+  font-size: 18px;
+  font-weight: 900;
+  white-space: nowrap;
+
+  ${mediaQueries.mediumTablet} {
+    width: auto;
+    padding: 12px 14px 8px;
+    background: ${colors.accent.coral} !important;
+    border-right: 0;
+    color: ${colors.primary.white};
+    font-size: 17px;
+
+  }
 `;
 
-const Post = styled.div`
-  width: 26px;
-  height: 70px;
-  background: linear-gradient(90deg, #c98a4b, #a9712f);
-  border-radius: 0 0 6px 6px;
+const Cell = styled.td`
+  font-family: "Satoshi";
+  font-size: 16px;
+  font-weight: 700;
+  line-height: 150%;
 `;
 
-const Note = styled(Body)`
-  position: relative;
-  z-index: 1;
-  max-width: 520px;
-  text-align: center;
-  color: ${colors.primary.gray};
+const CellContent = styled.span`
+  display: block;
+  padding: 3px 0;
+  font-weight: 700;
+
+  ${mediaQueries.mediumTablet} {
+    padding: 3px 0;
+  }
 `;
 
 export default Schedule;
